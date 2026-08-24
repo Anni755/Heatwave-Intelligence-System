@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+Interactive Heatwave Hotspot Map
+</title>
+
+
+<!-- Leaflet CSS -->
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+header {
+    background-color: orange;
+    padding: 20px;
+}
+
+
+nav {
+    padding: 15px;
+    background-color: #eeeeee;
+}
+
+
+nav a {
+    margin-right: 10px;
+}
+
+
+#map {
+    height: 600px;
+    width: 100%;
+}
+
+
+.info-box {
+    padding: 8px;
+    background: white;
+    border-radius: 5px;
+}
+
+
+h2 {
+    margin-left: 20px;
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>
+Heatwave Intelligence System
+</h1>
+
+<p>
+<b>Interactive Heatwave Hotspot Map</b>
+</p>
+
+</header>
+
+
+
+<nav>
+
+<a href="index.html">
+Home
+</a>
+
+&nbsp;
+
+<a href="alert-details.html">
+Alert Details
+</a>
+
+&nbsp;
+
+<a href="about-system.html">
+About System
+</a>
+
+&nbsp;
+
+<a href="sources.html">
+Data Sources
+</a>
+
+&nbsp;
+
+<a href="navigation.html">
+Navigation
+</a>
+
+&nbsp;
+
+<a href="hotspot-map.html">
+Hotspot Map
+</a>
+
+&nbsp;
+
+<a href="forecast.html">
+Forecast
+</a>
+
+&nbsp;
+
+<a href="subscribe.html">
+Subscribe
+</a>
+
+&nbsp;
+
+<a href="media.html">
+Media
+</a>
+
+</nav>
+
+
+
+<main>
+
+
+<h2>
+Interactive Heatwave Map
+</h2>
+
+
+<p style="margin-left:20px;">
+
+Move your mouse over a state to view its current
+weather information.
+
+</p>
+
+
+
+<div id="map"></div>
+
+
+</main>
+
+
+
+<footer style="background-color: orange; padding: 10px;">
+
+<p>
+© 2026 Heatwave Intelligence System
+</p>
+
+</footer>
+
+
+
+<!-- Leaflet JavaScript -->
+
+<script
+src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+
+
+<script>
+
+
+// --------------------------------------------------
+// CREATE THE MAP
+// --------------------------------------------------
+
+var map = L.map('map').setView([22.5, 79.0], 5);
+
+
+// --------------------------------------------------
+// ADD MAP BACKGROUND
+// --------------------------------------------------
+
+L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+        attribution: '&copy; OpenStreetMap contributors'
+    }
+).addTo(map);
+
+
+
+// --------------------------------------------------
+// APPROXIMATE LOCATIONS OF STATE CAPITALS
+// --------------------------------------------------
+
+var stateLocations = {
+
+    "Andhra Pradesh": [16.5062, 80.6480],
+
+    "Arunachal Pradesh": [27.0844, 93.6053],
+
+    "Assam": [26.1445, 91.7362],
+
+    "Bihar": [25.5941, 85.1376],
+
+    "Chhattisgarh": [21.2514, 81.6296],
+
+    "Goa": [15.4909, 73.8278],
+
+    "Gujarat": [23.0225, 72.5714],
+
+    "Haryana": [30.7333, 76.7794],
+
+    "Himachal Pradesh": [31.1048, 77.1734],
+
+    "Jharkhand": [23.3441, 85.3096],
+
+    "Karnataka": [12.9716, 77.5946],
+
+    "Kerala": [8.5241, 76.9366],
+
+    "Madhya Pradesh": [23.2599, 77.4126],
+
+    "Maharashtra": [19.0760, 72.8777],
+
+    "Manipur": [24.8170, 93.9368],
+
+    "Meghalaya": [25.5788, 91.8933],
+
+    "Mizoram": [23.7271, 92.7176],
+
+    "Nagaland": [25.6751, 94.1086],
+
+    "Odisha": [20.2961, 85.8245],
+
+    "Punjab": [30.7333, 76.7794],
+
+    "Rajasthan": [26.9124, 75.7873],
+
+    "Sikkim": [27.3389, 88.6065],
+
+    "Tamil Nadu": [13.0827, 80.2707],
+
+    "Telangana": [17.3850, 78.4867],
+
+    "Tripura": [23.8315, 91.2868],
+
+    "Uttar Pradesh": [26.8467, 80.9462],
+
+    "Uttarakhand": [30.0668, 79.0193],
+
+    "West Bengal": [22.5726, 88.3639],
+
+    "Delhi": [28.6139, 77.2090],
+
+    "Jammu & Kashmir": [34.0837, 74.7973],
+
+    "Ladakh": [34.1526, 77.5771]
+
+};
+
+
+
+// --------------------------------------------------
+// GET WEATHER DATA
+// --------------------------------------------------
+
+async function getWeather(stateName) {
+
+
+    var location = stateLocations[stateName];
+
+
+    if (!location) {
+
+        return "Weather location unavailable";
+
+    }
+
+
+    var latitude = location[0];
+
+    var longitude = location[1];
+
+
+    var url =
+        "https://api.open-meteo.com/v1/forecast" +
+        "?latitude=" + latitude +
+        "&longitude=" + longitude +
+        "&current=temperature_2m,relative_humidity_2m,wind_speed_10m";
+
+
+    try {
+
+
+        var response = await fetch(url);
+
+
+        var data = await response.json();
+
+
+        var temperature =
+            data.current.temperature_2m;
+
+
+        var humidity =
+            data.current.relative_humidity_2m;
+
+
+        var wind =
+            data.current.wind_speed_10m;
+
+
+        return {
+
+            temperature: temperature,
+
+            humidity: humidity,
+
+            wind: wind
+
+        };
+
+
+    }
+
+    catch (error) {
+
+
+        return null;
+
+
+    }
+
+}
+
+
+
+// --------------------------------------------------
+// STATE STYLE
+// --------------------------------------------------
+
+function stateStyle(feature) {
+
+    return {
+
+        fillColor: "#ff9933",
+
+        weight: 1,
+
+        opacity: 1,
+
+        color: "white",
+
+        fillOpacity: 0.6
+
+    };
+
+}
+
+
+
+// --------------------------------------------------
+// STATE HOVER
+// --------------------------------------------------
+
+function highlightState(event) {
+
+
+    var layer = event.target;
+
+
+    layer.setStyle({
+
+        weight: 3,
+
+        color: "black",
+
+        fillOpacity: 0.9
+
+    });
+
+
+    layer.bringToFront();
+
+
+}
+
+
+
+// --------------------------------------------------
+// REMOVE HIGHLIGHT
+// --------------------------------------------------
+
+function resetState(event) {
+
+
+    geojson.resetStyle(event.target);
+
+}
+
+
+
+// --------------------------------------------------
+// WHEN USER HOVERS OVER STATE
+// --------------------------------------------------
+
+async function showWeather(event) {
+
+
+    var layer = event.target;
+
+
+    var stateName =
+        layer.feature.properties.ST_NM;
+
+
+    layer.bindTooltip(
+
+        "<b>" +
+        stateName +
+        "</b><br>" +
+        "Loading weather...",
+
+        {
+            sticky: true
+        }
+
+    );
+
+
+    layer.openTooltip();
+
+
+    var weather =
+        await getWeather(stateName);
+
+
+    if (weather) {
+
+
+        layer.setTooltipContent(
+
+            "<div class='info-box'>" +
+
+            "<b>" +
+            stateName +
+            "</b><br><br>" +
+
+            "🌡 Temperature: " +
+            weather.temperature +
+            " °C<br>" +
+
+            "💧 Humidity: " +
+            weather.humidity +
+            " %<br>" +
+
+            "💨 Wind Speed: " +
+            weather.wind +
+            " km/h" +
+
+            "</div>"
+
+        );
+
+
+    }
+
+    else {
+
+
+        layer.setTooltipContent(
+
+            "<b>" +
+            stateName +
+            "</b><br>" +
+
+            "Weather data unavailable"
+
+        );
+
+
+    }
+
+}
+
+
+
+// --------------------------------------------------
+// STATE EVENTS
+// --------------------------------------------------
+
+function stateEvents(feature, layer) {
+
+
+    layer.on({
+
+        mouseover: function(event) {
+
+            highlightState(event);
+
+            showWeather(event);
+
+        },
+
+
+        mouseout: function(event) {
+
+            resetState(event);
+
+        }
+
+    });
+
+
+}
+
+
+
+// --------------------------------------------------
+// LOAD INDIA GEOJSON
+// --------------------------------------------------
+
+var geojson;
+
+
+fetch(
+    "https://raw.githubusercontent.com/india-in-data/india-states-2019/master/india_states.geojson"
+)
+
+.then(function(response) {
+
+    return response.json();
+
+})
+
+.then(function(data) {
+
+
+    geojson = L.geoJSON(
+
+        data,
+
+        {
+
+            style: stateStyle,
+
+            onEachFeature: stateEvents
+
+        }
+
+    ).addTo(map);
+
+
+    map.fitBounds(
+        geojson.getBounds()
+    );
+
+
+})
+
+.catch(function(error) {
+
+
+    console.log(
+        "Could not load India map:",
+        error
+    );
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
