@@ -1,0 +1,271 @@
+/* ================================
+   HEATWAVE INTELLIGENCE SYSTEM
+   CSS3 STYLESHEET
+   ================================ */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #fff8ed;
+    color: #333;
+}
+
+/* Main Header */
+
+header {
+    background-color: #e85d04;
+    color: white;
+    padding: 25px;
+    text-align: center;
+    border-bottom: 5px solid #9d0208;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Navigation */
+
+nav {
+    background-color: #9d0208;
+    text-align: center;
+    padding: 12px;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #ffba08;
+    color: black;
+}
+
+/* Main Layout */
+
+.container {
+    display: flex;
+    gap: 25px;
+    padding: 25px;
+}
+
+/* Sidebar */
+
+.sidebar {
+    width: 25%;
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #e85d04;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.sidebar h2 {
+    color: #d00000;
+}
+
+.sidebar ul {
+    padding-left: 20px;
+}
+
+.sidebar li {
+    margin: 12px 0;
+    padding: 8px;
+}
+
+.sidebar li:hover {
+    background-color: #ffe5b4;
+    color: #d00000;
+}
+
+/* Main Content */
+
+.content {
+    width: 75%;
+}
+
+/* Cards */
+
+.card {
+    background-color: white;
+    display: inline-block;
+    width: 28%;
+    min-height: 150px;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid #f48c06;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    text-align: center;
+    vertical-align: top;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+/* Alert Box */
+
+.alert-box {
+    background-color: #ffcccb;
+    border: 3px solid #d00000;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Highlight / Offer Box */
+
+.highlight {
+    background-color: #ffba08;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 0 15px #ff8800;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px #ff8800;
+    }
+
+    to {
+        box-shadow: 0 0 25px #ff0000;
+    }
+}
+
+/* Images / Gallery */
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.gallery img {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    border: 3px solid #e85d04;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* Tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: white;
+}
+
+th {
+    background-color: #d00000;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #999;
+}
+
+tr:nth-child(even) {
+    background-color: #ffe5b4;
+}
+
+/* Forms */
+
+form {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #e85d04;
+}
+
+input,
+select,
+textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border: 2px solid #e85d04;
+    outline: none;
+}
+
+button {
+    background-color: #d00000;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffba08;
+    color: black;
+}
+
+/* Footer */
+
+footer {
+    background-color: #9d0208;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar,
+    .content {
+        width: 100%;
+    }
+
+    .card {
+        width: 80%;
+    }
+
+    nav a {
+        display: block;
+    }
+}
