@@ -8,19 +8,44 @@
 Heatwave System Navigation
 </title>
 
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+nav {
+    text-align: center;
+    background-color: darkred;
+    padding: 10px;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+nav a:hover {
+    color: yellow;
+    background-color: orange;
+    text-decoration: underline;
+}
+
+</style>
+
 </head>
 
 
 <body>
 
 
-<header style="background-color: orange; padding: 20px;">
+<header style="background-color: orange; padding: 20px; border: 4px solid darkred;">
 
-<h1>
+<h1 style="color: white;">
 Heatwave Intelligence System
 </h1>
 
-<p>
+<p style="color: white;">
 <b>Website Navigation Guide</b>
 </p>
 
@@ -86,7 +111,60 @@ Media
 
 
 
-<main>
+<main class="container">
+
+
+<aside class="sidebar">
+
+<h2>
+Quick Links
+</h2>
+
+<ul>
+
+<li>
+<a href="index.html">
+Home
+</a>
+</li>
+
+<li>
+<a href="alert-details.html">
+Alert Details
+</a>
+</li>
+
+<li>
+<a href="hotspot-map.html">
+Hotspot Map
+</a>
+</li>
+
+<li>
+<a href="forecast.html">
+Forecast
+</a>
+</li>
+
+<li>
+<a href="subscribe.html">
+Subscribe
+</a>
+</li>
+
+<li>
+<a href="media.html">
+Media
+</a>
+</li>
+
+</ul>
+
+</aside>
+
+
+
+<section class="content">
 
 
 <section>
@@ -115,7 +193,7 @@ monitoring, prediction and public safety.
 Available Sections
 </h2>
 
-<table border="1" cellpadding="10">
+<table>
 
 <tr>
 
@@ -305,7 +383,8 @@ Use the Subscribe page to receive future notifications.
 <section>
 
 <h2>
-Quick Navigation</h2>
+Quick Navigation
+</h2>
 
 <p>
 
@@ -334,11 +413,14 @@ View Forecast
 </section>
 
 
+</section>
+
+
 </main>
 
 
 
-<footer style="background-color: orange; padding: 10px;">
+<footer>
 
 <p>
 © 2026 Heatwave Intelligence System
