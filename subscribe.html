@@ -8,19 +8,44 @@
 Heatwave Alert Subscription
 </title>
 
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+nav {
+    text-align: center;
+    background-color: darkred;
+    padding: 10px;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+nav a:hover {
+    color: yellow;
+    background-color: orange;
+    text-decoration: underline;
+}
+
+</style>
+
 </head>
 
 
 <body>
 
 
-<header style="background-color: orange; padding: 20px;">
+<header style="background-color: orange; padding: 20px; border: 4px solid darkred;">
 
-<h1>
+<h1 style="color: white;">
 Subscribe for Heatwave Alerts
 </h1>
 
-<p>
+<p style="color: white;">
 <b>Heatwave Intelligence System</b>
 </p>
 
@@ -114,7 +139,16 @@ heatwave conditions, forecasts and safety advisories.
 Subscribe to Alerts
 </h2>
 
+
 <form>
+
+
+<fieldset>
+
+<legend>
+Personal Information
+</legend>
+
 
 <p>
 
@@ -124,7 +158,7 @@ Name:
 
 <br>
 
-<input type="text" id="name" name="name">
+<input type="text" id="name" name="name" placeholder="Enter your name">
 
 </p>
 
@@ -138,10 +172,24 @@ Email Address:
 
 <br>
 
-<input type="email" id="email" name="email">
+<input type="email" id="email" name="email" placeholder="Enter your email">
 
 </p>
 
+
+</fieldset>
+
+
+
+<br>
+
+
+
+<fieldset>
+
+<legend>
+Alert Preferences
+</legend>
 
 
 <p>
@@ -217,14 +265,26 @@ Safety Advisories
 </p>
 
 
+</fieldset>
+
+
+
+<br>
+
+
 
 <p>
 
-<input type="submit" value="Subscribe">
+<button type="submit">
+Subscribe
+</button>
 
-<input type="reset" value="Clear">
+<button type="reset">
+Clear
+</button>
 
 </p>
+
 
 </form>
 
@@ -290,7 +350,7 @@ and notification service.
 
 
 
-<footer style="background-color: orange; padding: 10px;">
+<footer>
 
 <p>
 © 2026 Heatwave Intelligence System
