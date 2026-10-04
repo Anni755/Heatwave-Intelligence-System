@@ -112,7 +112,7 @@ All fields must be filled correctly before submission.
 </p>
 
 
-<form id="heatwaveForm">
+<form id="heatwaveForm" novalidate>
 
 
 <!-- OBSERVER INFORMATION -->
@@ -132,7 +132,6 @@ Observer Name:
     type="text"
     id="observerName"
     placeholder="Enter observer name"
-    required
 >
 
 <p id="nameError" class="error"></p>
@@ -151,7 +150,6 @@ Email:
     type="email"
     id="email"
     placeholder="Enter email address"
-    required
 >
 
 <p id="emailError" class="error"></p>
@@ -170,7 +168,6 @@ Mobile Number:
     type="tel"
     id="mobile"
     placeholder="Enter 10-digit mobile number"
-    required
 >
 
 <p id="mobileError" class="error"></p>
@@ -197,7 +194,6 @@ AWS Station ID:
     type="text"
     id="stationID"
     placeholder="Example: AWS001"
-    required
 >
 
 <p id="stationError" class="error"></p>
@@ -216,7 +212,6 @@ Location:
     type="text"
     id="location"
     placeholder="Enter location"
-    required
 >
 
 <p id="locationError" class="error"></p>
@@ -242,7 +237,6 @@ Observation Date:
 <input
     type="date"
     id="observationDate"
-    required
 >
 
 <p id="dateError" class="error"></p>
@@ -261,7 +255,6 @@ Maximum Temperature (°C):
     type="number"
     id="temperature"
     placeholder="Enter temperature"
-    required
 >
 
 <p id="temperatureError" class="error"></p>
@@ -280,7 +273,6 @@ Humidity (%):
     type="number"
     id="humidity"
     placeholder="0 - 100"
-    required
 >
 
 <p id="humidityError" class="error"></p>
@@ -303,7 +295,7 @@ Select Alert Level:
 
 <br>
 
-<select id="alertLevel" required>
+<select id="alertLevel">
 
     <option value="">
         Select Alert Level
@@ -384,7 +376,7 @@ $(document).ready(function()
         event.preventDefault();
 
 
-        // Clear previous errors
+        // Clear previous error messages
 
         $(".error").text("");
 
@@ -404,19 +396,28 @@ $(document).ready(function()
 
         if (name === "")
         {
-            $("#nameError").text("Observer name is required.");
+            $("#nameError").text(
+                "Observer name is required."
+            );
+
             valid = false;
         }
 
         else if (name.length < 3)
         {
-            $("#nameError").text("Name must contain at least 3 characters.");
+            $("#nameError").text(
+                "Name must contain at least 3 characters."
+            );
+
             valid = false;
         }
 
         else if (!namePattern.test(name))
         {
-            $("#nameError").text("Name should contain alphabets and spaces only.");
+            $("#nameError").text(
+                "Name should contain alphabets and spaces only."
+            );
+
             valid = false;
         }
 
@@ -432,13 +433,19 @@ $(document).ready(function()
 
         if (email === "")
         {
-            $("#emailError").text("Email is required.");
+            $("#emailError").text(
+                "Email is required."
+            );
+
             valid = false;
         }
 
         else if (!emailPattern.test(email))
         {
-            $("#emailError").text("Enter a valid email address.");
+            $("#emailError").text(
+                "Enter a valid email address."
+            );
+
             valid = false;
         }
 
@@ -453,7 +460,10 @@ $(document).ready(function()
 
         if (mobile === "")
         {
-            $("#mobileError").text("Mobile number is required.");
+            $("#mobileError").text(
+                "Mobile number is required."
+            );
+
             valid = false;
         }
 
@@ -569,6 +579,15 @@ $(document).ready(function()
             valid = false;
         }
 
+        else if (isNaN(humidity))
+        {
+            $("#humidityError").text(
+                "Humidity must be a number."
+            );
+
+            valid = false;
+        }
+
         else if (humidity < 0 || humidity > 100)
         {
             $("#humidityError").text(
@@ -614,7 +633,7 @@ $(document).ready(function()
 
 
 
-    // CLEAR SUCCESS MESSAGE WHEN RESETTING
+    // RESET FORM
 
     $("#heatwaveForm").on("reset", function()
     {
