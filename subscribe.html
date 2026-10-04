@@ -115,8 +115,6 @@ All fields must be filled correctly before submission.
 <form id="heatwaveForm" novalidate>
 
 
-<!-- OBSERVER INFORMATION -->
-
 <fieldset>
 
 <legend>Observer Information</legend>
@@ -147,7 +145,7 @@ Email:
 <br>
 
 <input
-    type="email"
+    type="text"
     id="email"
     placeholder="Enter email address"
 >
@@ -165,7 +163,7 @@ Mobile Number:
 <br>
 
 <input
-    type="tel"
+    type="text"
     id="mobile"
     placeholder="Enter 10-digit mobile number"
 >
@@ -176,8 +174,6 @@ Mobile Number:
 </fieldset>
 
 
-
-<!-- AWS INFORMATION -->
 
 <fieldset>
 
@@ -220,8 +216,6 @@ Location:
 </fieldset>
 
 
-
-<!-- WEATHER OBSERVATION -->
 
 <fieldset>
 
@@ -281,8 +275,6 @@ Humidity (%):
 </fieldset>
 
 
-
-<!-- ALERT LEVEL -->
 
 <fieldset>
 
@@ -360,8 +352,6 @@ Clear
 
 
 
-<!-- jQuery -->
-
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 
@@ -375,19 +365,14 @@ $(document).ready(function()
 
         event.preventDefault();
 
-
-        // Clear previous error messages
-
         $(".error").text("");
 
         $("#success").hide();
 
-
         let valid = true;
 
 
-
-        // NAME VALIDATION
+        // OBSERVER NAME
 
         let name = $("#observerName").val().trim();
 
@@ -423,7 +408,7 @@ $(document).ready(function()
 
 
 
-        // EMAIL VALIDATION
+        // EMAIL
 
         let email = $("#email").val().trim();
 
@@ -451,7 +436,7 @@ $(document).ready(function()
 
 
 
-        // MOBILE VALIDATION
+        // MOBILE NUMBER
 
         let mobile = $("#mobile").val().trim();
 
@@ -478,7 +463,7 @@ $(document).ready(function()
 
 
 
-        // AWS STATION ID VALIDATION
+        // AWS STATION ID
 
         let stationID = $("#stationID").val().trim();
 
@@ -505,7 +490,7 @@ $(document).ready(function()
 
 
 
-        // LOCATION VALIDATION
+        // LOCATION
 
         let location = $("#location").val().trim();
 
@@ -521,7 +506,7 @@ $(document).ready(function()
 
 
 
-        // DATE VALIDATION
+        // OBSERVATION DATE
 
         let observationDate =
             $("#observationDate").val();
@@ -538,7 +523,7 @@ $(document).ready(function()
 
 
 
-        // TEMPERATURE VALIDATION
+        // MAXIMUM TEMPERATURE
 
         let temperature =
             $("#temperature").val();
@@ -564,7 +549,7 @@ $(document).ready(function()
 
 
 
-        // HUMIDITY VALIDATION
+        // HUMIDITY
 
         let humidity =
             $("#humidity").val();
@@ -599,7 +584,7 @@ $(document).ready(function()
 
 
 
-        // ALERT LEVEL VALIDATION
+        // ALERT LEVEL
 
         let alertLevel =
             $("#alertLevel").val();
@@ -616,24 +601,18 @@ $(document).ready(function()
 
 
 
-        // FINAL RESULT
+        // SUCCESS
 
         if (valid)
         {
-
-            $("#success").text(
-                "Heatwave monitoring data submitted successfully!"
-            );
-
             $("#success").show();
-
         }
 
     });
 
 
 
-    // RESET FORM
+    // RESET
 
     $("#heatwaveForm").on("reset", function()
     {
