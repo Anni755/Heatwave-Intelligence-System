@@ -1,37 +1,64 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
 
-<title>
-Heatwave Alert Subscription
-</title>
+    <title>Heatwave Monitoring Form</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<style>
+    <style>
 
-nav {
-    text-align: center;
-    background-color: darkred;
-    padding: 10px;
-}
+        nav
+        {
+            text-align: center;
+        }
 
-nav a {
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-}
+        nav a
+        {
+            margin: 5px;
+        }
 
-nav a:hover {
-    color: yellow;
-    background-color: orange;
-    text-decoration: underline;
-}
+        .error
+        {
+            color: red;
+            font-size: 14px;
+            font-weight: bold;
+        }
 
-</style>
+        .success
+        {
+            background-color: #d4edda;
+            color: green;
+            padding: 15px;
+            margin-top: 20px;
+            border: 2px solid green;
+            border-radius: 8px;
+            display: none;
+            font-weight: bold;
+        }
+
+        fieldset
+        {
+            margin-bottom: 20px;
+            border: 2px solid #e85d04;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        legend
+        {
+            font-weight: bold;
+            color: #d00000;
+            font-size: 18px;
+        }
+
+        label
+        {
+            font-weight: bold;
+        }
+
+    </style>
 
 </head>
 
@@ -39,324 +66,568 @@ nav a:hover {
 <body>
 
 
-<header style="background-color: orange; padding: 20px; border: 4px solid darkred;">
+<header>
 
-<h1 style="color: white;">
-Subscribe for Heatwave Alerts
-</h1>
+    <h1>Heatwave Monitoring Form</h1>
 
-<p style="color: white;">
-<b>Heatwave Intelligence System</b>
-</p>
+    <p>
+        <b>Heatwave Intelligence System</b>
+    </p>
 
 </header>
 
 
-
 <nav>
 
-<a href="index.html">
-Home
-</a>
+    <a href="index.html">Home</a>
 
-&nbsp;
+    <a href="alert-details.html">Alert Details</a>
 
-<a href="alert-details.html">
-Alert Details
-</a>
+    <a href="about-system.html">About System</a>
 
-&nbsp;
+    <a href="sources.html">Data Sources</a>
 
-<a href="about-system.html">
-About System
-</a>
+    <a href="navigation.html">Navigation</a>
 
-&nbsp;
+    <a href="hotspot-map.html">Hotspot Map</a>
 
-<a href="sources.html">
-Data Sources
-</a>
+    <a href="forecast.html">Forecast</a>
 
-&nbsp;
+    <a href="subscribe.html">Heatwave Monitoring</a>
 
-<a href="navigation.html">
-Navigation
-</a>
-
-&nbsp;
-
-<a href="hotspot-map.html">
-Hotspot Map
-</a>
-
-&nbsp;
-
-<a href="forecast.html">
-Forecast
-</a>
-
-&nbsp;
-
-<a href="subscribe.html">
-Subscribe
-</a>
-
-&nbsp;
-
-<a href="media.html">
-Media
-</a>
+    <a href="media.html">Media</a>
 
 </nav>
 
 
+<main class="container">
 
-<main>
+<section class="content">
 
-
-<section>
-
-<h2>
-Heatwave Alert Subscription
-</h2>
+<h2>Heatwave Monitoring and Early Warning</h2>
 
 <p>
-Users can subscribe to receive information about
-heatwave conditions, forecasts and safety advisories.
+Enter the weather observation details below.
+All fields must be filled correctly before submission.
 </p>
 
-</section>
+
+<form id="heatwaveForm">
 
 
-
-<hr>
-
-
-
-<section>
-
-<h2>
-Subscribe to Alerts
-</h2>
-
-
-<form>
-
+<!-- OBSERVER INFORMATION -->
 
 <fieldset>
 
-<legend>
-Personal Information
-</legend>
+<legend>Observer Information</legend>
 
 
-<p>
-
-<label for="name">
-Name:
+<label for="observerName">
+Observer Name:
 </label>
 
 <br>
 
-<input type="text" id="name" name="name" placeholder="Enter your name">
+<input
+    type="text"
+    id="observerName"
+    placeholder="Enter observer name"
+    required
+>
 
-</p>
+<p id="nameError" class="error"></p>
 
 
+<br>
 
-<p>
 
 <label for="email">
-Email Address:
+Email:
 </label>
 
 <br>
 
-<input type="email" id="email" name="email" placeholder="Enter your email">
+<input
+    type="email"
+    id="email"
+    placeholder="Enter email address"
+    required
+>
 
-</p>
+<p id="emailError" class="error"></p>
+
+
+<br>
+
+
+<label for="mobile">
+Mobile Number:
+</label>
+
+<br>
+
+<input
+    type="tel"
+    id="mobile"
+    placeholder="Enter 10-digit mobile number"
+    required
+>
+
+<p id="mobileError" class="error"></p>
 
 
 </fieldset>
 
 
 
-<br>
-
-
+<!-- AWS INFORMATION -->
 
 <fieldset>
 
-<legend>
-Alert Preferences
-</legend>
+<legend>AWS Station Information</legend>
 
 
-<p>
-
-<label for="region">
-Select Region:
+<label for="stationID">
+AWS Station ID:
 </label>
 
 <br>
 
-<select id="region" name="region">
+<input
+    type="text"
+    id="stationID"
+    placeholder="Example: AWS001"
+    required
+>
 
-<option>
-Delhi
-</option>
+<p id="stationError" class="error"></p>
 
-<option>
-Rajasthan
-</option>
 
-<option>
-Maharashtra
-</option>
+<br>
 
-<option>
-Gujarat
-</option>
 
-<option>
-West Bengal
-</option>
+<label for="location">
+Location:
+</label>
 
-<option>
-Other
-</option>
+<br>
+
+<input
+    type="text"
+    id="location"
+    placeholder="Enter location"
+    required
+>
+
+<p id="locationError" class="error"></p>
+
+
+</fieldset>
+
+
+
+<!-- WEATHER OBSERVATION -->
+
+<fieldset>
+
+<legend>Weather Observation</legend>
+
+
+<label for="observationDate">
+Observation Date:
+</label>
+
+<br>
+
+<input
+    type="date"
+    id="observationDate"
+    required
+>
+
+<p id="dateError" class="error"></p>
+
+
+<br>
+
+
+<label for="temperature">
+Maximum Temperature (°C):
+</label>
+
+<br>
+
+<input
+    type="number"
+    id="temperature"
+    placeholder="Enter temperature"
+    required
+>
+
+<p id="temperatureError" class="error"></p>
+
+
+<br>
+
+
+<label for="humidity">
+Humidity (%):
+</label>
+
+<br>
+
+<input
+    type="number"
+    id="humidity"
+    placeholder="0 - 100"
+    required
+>
+
+<p id="humidityError" class="error"></p>
+
+
+</fieldset>
+
+
+
+<!-- ALERT LEVEL -->
+
+<fieldset>
+
+<legend>Heatwave Alert Level</legend>
+
+
+<label for="alertLevel">
+Select Alert Level:
+</label>
+
+<br>
+
+<select id="alertLevel" required>
+
+    <option value="">
+        Select Alert Level
+    </option>
+
+    <option value="Normal">
+        Normal
+    </option>
+
+    <option value="Watch">
+        Watch
+    </option>
+
+    <option value="Warning">
+        Warning
+    </option>
+
+    <option value="Severe">
+        Severe
+    </option>
 
 </select>
 
-</p>
-
-
-
-<p>
-
-<label>
-Alert Type:
-</label>
-
-<br>
-
-<input type="checkbox" id="heatwave" name="alert">
-
-<label for="heatwave">
-Heatwave Alerts
-</label>
-
-<br>
-
-<input type="checkbox" id="forecast-alert" name="alert">
-
-<label for="forecast-alert">
-Forecast Updates
-</label>
-
-<br>
-
-<input type="checkbox" id="safety" name="alert">
-
-<label for="safety">
-Safety Advisories
-</label>
-
-</p>
+<p id="alertError" class="error"></p>
 
 
 </fieldset>
 
 
 
-<br>
-
-
-
-<p>
-
 <button type="submit">
-Subscribe
+Submit Observation
 </button>
+
 
 <button type="reset">
 Clear
 </button>
 
-</p>
+
+<div id="success" class="success">
+
+    Heatwave monitoring data submitted successfully!
+
+</div>
 
 
 </form>
 
 </section>
 
-
-
-<hr>
-
-
-
-<section>
-
-<h2>
-Why Subscribe?
-</h2>
-
-<ul>
-
-<li>
-Receive information about heatwave conditions.
-</li>
-
-<li>
-Stay informed about changing temperature conditions.
-</li>
-
-<li>
-Receive forecast updates.
-</li>
-
-<li>
-Get heatwave safety advisories.
-</li>
-
-</ul>
-
-</section>
-
-
-
-<hr>
-
-
-
-<section>
-
-<h2>
-Important Information
-</h2>
-
-<p>
-This is a demonstration subscription form for the
-Heatwave Intelligence System. In a fully developed
-system, the form could be connected to a database
-and notification service.
-</p>
-
-</section>
-
-
 </main>
-
 
 
 <footer>
 
-<p>
-© 2026 Heatwave Intelligence System
-</p>
+    <p>
+        © 2026 Heatwave Intelligence System
+    </p>
 
 </footer>
+
+
+
+<!-- jQuery -->
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+<script>
+
+$(document).ready(function()
+{
+
+    $("#heatwaveForm").submit(function(event)
+    {
+
+        event.preventDefault();
+
+
+        // Clear previous errors
+
+        $(".error").text("");
+
+        $("#success").hide();
+
+
+        let valid = true;
+
+
+
+        // NAME VALIDATION
+
+        let name = $("#observerName").val().trim();
+
+        let namePattern = /^[A-Za-z ]+$/;
+
+
+        if (name === "")
+        {
+            $("#nameError").text("Observer name is required.");
+            valid = false;
+        }
+
+        else if (name.length < 3)
+        {
+            $("#nameError").text("Name must contain at least 3 characters.");
+            valid = false;
+        }
+
+        else if (!namePattern.test(name))
+        {
+            $("#nameError").text("Name should contain alphabets and spaces only.");
+            valid = false;
+        }
+
+
+
+        // EMAIL VALIDATION
+
+        let email = $("#email").val().trim();
+
+        let emailPattern =
+        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+
+        if (email === "")
+        {
+            $("#emailError").text("Email is required.");
+            valid = false;
+        }
+
+        else if (!emailPattern.test(email))
+        {
+            $("#emailError").text("Enter a valid email address.");
+            valid = false;
+        }
+
+
+
+        // MOBILE VALIDATION
+
+        let mobile = $("#mobile").val().trim();
+
+        let mobilePattern = /^[6-9][0-9]{9}$/;
+
+
+        if (mobile === "")
+        {
+            $("#mobileError").text("Mobile number is required.");
+            valid = false;
+        }
+
+        else if (!mobilePattern.test(mobile))
+        {
+            $("#mobileError").text(
+                "Enter a valid 10-digit Indian mobile number."
+            );
+
+            valid = false;
+        }
+
+
+
+        // AWS STATION ID VALIDATION
+
+        let stationID = $("#stationID").val().trim();
+
+        let stationPattern = /^AWS[0-9]{3}$/;
+
+
+        if (stationID === "")
+        {
+            $("#stationError").text(
+                "AWS Station ID is required."
+            );
+
+            valid = false;
+        }
+
+        else if (!stationPattern.test(stationID))
+        {
+            $("#stationError").text(
+                "AWS Station ID must be in format AWS001."
+            );
+
+            valid = false;
+        }
+
+
+
+        // LOCATION VALIDATION
+
+        let location = $("#location").val().trim();
+
+
+        if (location === "")
+        {
+            $("#locationError").text(
+                "Location is required."
+            );
+
+            valid = false;
+        }
+
+
+
+        // DATE VALIDATION
+
+        let observationDate =
+            $("#observationDate").val();
+
+
+        if (observationDate === "")
+        {
+            $("#dateError").text(
+                "Observation date is required."
+            );
+
+            valid = false;
+        }
+
+
+
+        // TEMPERATURE VALIDATION
+
+        let temperature =
+            $("#temperature").val();
+
+
+        if (temperature === "")
+        {
+            $("#temperatureError").text(
+                "Maximum temperature is required."
+            );
+
+            valid = false;
+        }
+
+        else if (isNaN(temperature))
+        {
+            $("#temperatureError").text(
+                "Temperature must be a number."
+            );
+
+            valid = false;
+        }
+
+
+
+        // HUMIDITY VALIDATION
+
+        let humidity =
+            $("#humidity").val();
+
+
+        if (humidity === "")
+        {
+            $("#humidityError").text(
+                "Humidity is required."
+            );
+
+            valid = false;
+        }
+
+        else if (humidity < 0 || humidity > 100)
+        {
+            $("#humidityError").text(
+                "Humidity must be between 0% and 100%."
+            );
+
+            valid = false;
+        }
+
+
+
+        // ALERT LEVEL VALIDATION
+
+        let alertLevel =
+            $("#alertLevel").val();
+
+
+        if (alertLevel === "")
+        {
+            $("#alertError").text(
+                "Please select an alert level."
+            );
+
+            valid = false;
+        }
+
+
+
+        // FINAL RESULT
+
+        if (valid)
+        {
+
+            $("#success").text(
+                "Heatwave monitoring data submitted successfully!"
+            );
+
+            $("#success").show();
+
+        }
+
+    });
+
+
+
+    // CLEAR SUCCESS MESSAGE WHEN RESETTING
+
+    $("#heatwaveForm").on("reset", function()
+    {
+
+        $(".error").text("");
+
+        $("#success").hide();
+
+    });
+
+});
+
+</script>
 
 
 </body>
