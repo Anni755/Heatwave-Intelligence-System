@@ -8,25 +8,46 @@
 Heatwave Media
 </title>
 
-</head>
+<link rel="stylesheet" href="style.css">
 
+<style>
+
+nav {
+    text-align: center;
+    background-color: darkred;
+    padding: 10px;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+nav a:hover {
+    color: yellow;
+    background-color: orange;
+    text-decoration: underline;
+}
+
+</style>
+
+</head>
 
 <body>
 
+<header style="background-color: orange; padding: 20px; border: 4px solid darkred;">
 
-<header style="background-color: orange; padding: 20px;">
-
-<h1>
+<h1 style="color: white;">
 Heatwave Media
 </h1>
 
-<p>
+<p style="color: white;">
 <b>Heatwave Intelligence System</b>
 </p>
 
 </header>
-
-
 
 <nav>
 
@@ -34,49 +55,49 @@ Heatwave Media
 Home
 </a>
 
-&nbsp;
+ 
 
 <a href="alert-details.html">
 Alert Details
 </a>
 
-&nbsp;
+ 
 
 <a href="about-system.html">
 About System
 </a>
 
-&nbsp;
+ 
 
 <a href="sources.html">
 Data Sources
 </a>
 
-&nbsp;
+ 
 
 <a href="navigation.html">
 Navigation
 </a>
 
-&nbsp;
+ 
 
 <a href="hotspot-map.html">
 Hotspot Map
 </a>
 
-&nbsp;
+ 
 
 <a href="forecast.html">
 Forecast
 </a>
 
-&nbsp;
+ 
 
 <a href="subscribe.html">
 Subscribe
 </a>
 
-&nbsp;
+ 
 
 <a href="media.html">
 Media
@@ -84,10 +105,7 @@ Media
 
 </nav>
 
-
-
 <main>
-
 
 <section>
 
@@ -102,11 +120,7 @@ heatwaves, extreme temperatures and climate monitoring.
 
 </section>
 
-
-
 <hr>
-
-
 
 <section>
 
@@ -115,27 +129,33 @@ Heatwave Images
 </h2>
 
 <p>
-Images can be added to this section to show examples
-of extreme heat conditions and heatwave-affected areas.
+The following images provide visual information about
+extreme heat conditions and heatwave-affected areas.
 </p>
 
+<div class="gallery">
 
 <img src="heatwave.jpg"
-     alt="Heatwave conditions"
-     width="400"
-title = "India heatwave map">
+  alt="Heatwave conditions"
+  title="India heatwave map">
+
+<img src="heatwave.jpg"
+  alt="Extreme temperature conditions"
+  title="Extreme temperature conditions">
+
+<img src="heatwave.jpg"
+  alt="Heatwave affected area"
+  title="Heatwave affected area">
+
+</div>
 
 <p>
-Example image showing extreme heat conditions.
+Hover over an image to see the CSS3 zoom effect.
 </p>
 
 </section>
 
-
-
 <hr>
-
-
 
 <section>
 
@@ -149,38 +169,63 @@ of extreme heat and encourage people to take appropriate
 safety precautions.
 </p>
 
-<ul>
+<div class="card">
 
-<li>
-Extreme temperature conditions
-</li>
+<h3>
+Extreme Temperature Conditions
+</h3>
 
-<li>
-Heat-affected urban areas
-</li>
+<p>
+High temperatures can create dangerous heatwave conditions.
+</p>
 
-<li>
-Heatwave safety awareness
-</li>
+</div>
 
-<li>
-Climate monitoring activities
-</li>
+<div class="card">
 
-</ul>
+<h3>
+Heat-Affected Urban Areas
+</h3>
+
+<p>
+Urban areas can experience significant effects during extreme heat.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+Heatwave Safety Awareness
+</h3>
+
+<p>
+Public awareness can help people take appropriate safety precautions.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+Climate Monitoring
+</h3>
+
+<p>
+Climate monitoring helps identify and understand heatwave conditions.
+</p>
+
+</div>
 
 </section>
 
-
-
 <hr>
-
-
 
 <section>
 
 <h2>
-System Demonstration</h2>
+System Demonstration
+</h2>
 
 <p>
 The Heatwave Intelligence System can be expanded to
@@ -190,16 +235,13 @@ videos and other climate-related media.
 
 </section>
 
-
-
 <hr>
-
-
 
 <section>
 
 <h2>
-Media Information</h2>
+Media Information
+</h2>
 
 <p>
 All media used in a complete version of the system
@@ -209,10 +251,7 @@ follow appropriate copyright and usage requirements.
 
 </section>
 
-
 </main>
-
-
 
 <footer style="background-color: orange; padding: 10px;">
 
@@ -221,7 +260,6 @@ follow appropriate copyright and usage requirements.
 </p>
 
 </footer>
-
 
 </body>
 
