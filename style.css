@@ -1,16 +1,9 @@
-/* ================================
-   HEATWAVE INTELLIGENCE SYSTEM
-   CSS3 STYLESHEET
-   ================================ */
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     background-color: #fff8ed;
     color: #333;
 }
-
-/* Main Header */
 
 header {
     background-color: #e85d04;
@@ -29,8 +22,6 @@ header p {
     margin-top: 10px;
     font-size: 18px;
 }
-
-/* Navigation */
 
 nav {
     background-color: #9d0208;
@@ -52,15 +43,11 @@ nav a:hover {
     color: black;
 }
 
-/* Main Layout */
-
 .container {
     display: flex;
     gap: 25px;
     padding: 25px;
 }
-
-/* Sidebar */
 
 .sidebar {
     width: 25%;
@@ -89,13 +76,9 @@ nav a:hover {
     color: #d00000;
 }
 
-/* Main Content */
-
 .content {
     width: 75%;
 }
-
-/* Cards */
 
 .card {
     background-color: white;
@@ -116,8 +99,6 @@ nav a:hover {
     transition: 0.3s;
 }
 
-/* Alert Box */
-
 .alert-box {
     background-color: #ffcccb;
     border: 3px solid #d00000;
@@ -127,8 +108,6 @@ nav a:hover {
     font-size: 20px;
     font-weight: bold;
 }
-
-/* Highlight / Offer Box */
 
 .highlight {
     background-color: #ffba08;
@@ -152,8 +131,6 @@ nav a:hover {
     }
 }
 
-/* Images / Gallery */
-
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -172,8 +149,6 @@ nav a:hover {
 .gallery img:hover {
     transform: scale(1.1);
 }
-
-/* Tables */
 
 table {
     width: 100%;
@@ -197,8 +172,6 @@ td {
 tr:nth-child(even) {
     background-color: #ffe5b4;
 }
-
-/* Forms */
 
 form {
     background-color: white;
@@ -238,8 +211,6 @@ button:hover {
     color: black;
 }
 
-/* Footer */
-
 footer {
     background-color: #9d0208;
     color: white;
@@ -248,10 +219,7 @@ footer {
     margin-top: 30px;
 }
 
-/* Responsive Design */
-
 @media screen and (max-width: 768px) {
-
     .container {
         flex-direction: column;
     }
