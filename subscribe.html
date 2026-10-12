@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -9,25 +10,21 @@
 
     <style>
 
-        nav
-        {
+        nav {
             text-align: center;
         }
 
-        nav a
-        {
+        nav a {
             margin: 5px;
         }
 
-        .error
-        {
+        .error {
             color: red;
             font-size: 14px;
             font-weight: bold;
         }
 
-        .success
-        {
+        .success {
             background-color: #d4edda;
             color: green;
             padding: 15px;
@@ -38,23 +35,20 @@
             font-weight: bold;
         }
 
-        fieldset
-        {
+        fieldset {
             margin-bottom: 20px;
             border: 2px solid #e85d04;
             border-radius: 8px;
             padding: 20px;
         }
 
-        legend
-        {
+        legend {
             font-weight: bold;
             color: #d00000;
             font-size: 18px;
         }
 
-        label
-        {
+        label {
             font-weight: bold;
         }
 
@@ -62,9 +56,7 @@
 
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -75,7 +67,6 @@
     </p>
 
 </header>
-
 
 <nav>
 
@@ -99,7 +90,6 @@
 
 </nav>
 
-
 <main class="container">
 
 <section class="content">
@@ -107,240 +97,210 @@
 <h2>Heatwave Monitoring and Early Warning</h2>
 
 <p>
-Enter the weather observation details below.
-All fields must be filled correctly before submission.
+    Enter the weather observation details below.
+    All fields must be filled correctly before submission.
 </p>
-
 
 <form id="heatwaveForm" novalidate>
 
+    <fieldset>
 
-<fieldset>
+        <legend>Observer Information</legend>
 
-<legend>Observer Information</legend>
+        <label for="observerName">
+            Observer Name:
+        </label>
 
+        <br>
 
-<label for="observerName">
-Observer Name:
-</label>
+        <input
+            type="text"
+            id="observerName"
+            placeholder="Enter observer name"
+        >
 
-<br>
+        <p id="nameError" class="error"></p>
 
-<input
-    type="text"
-    id="observerName"
-    placeholder="Enter observer name"
->
+        <br>
 
-<p id="nameError" class="error"></p>
+        <label for="email">
+            Email:
+        </label>
 
+        <br>
 
-<br>
+        <input
+            type="text"
+            id="email"
+            placeholder="Enter email address"
+        >
 
+        <p id="emailError" class="error"></p>
 
-<label for="email">
-Email:
-</label>
+        <br>
 
-<br>
+        <label for="mobile">
+            Mobile Number:
+        </label>
 
-<input
-    type="text"
-    id="email"
-    placeholder="Enter email address"
->
+        <br>
 
-<p id="emailError" class="error"></p>
+        <input
+            type="text"
+            id="mobile"
+            placeholder="Enter 12-digit phone number"
+            maxlength="12"
+            inputmode="numeric"
+        >
 
+        <p id="mobileError" class="error"></p>
 
-<br>
+    </fieldset>
 
+    <fieldset>
 
-<label for="mobile">
-Mobile Number:
-</label>
+        <legend>AWS Station Information</legend>
 
-<br>
+        <label for="stationID">
+            AWS Station ID:
+        </label>
 
-<input
-    type="text"
-    id="mobile"
-    placeholder="Enter 10-digit mobile number"
->
+        <br>
 
-<p id="mobileError" class="error"></p>
+        <input
+            type="text"
+            id="stationID"
+            placeholder="Example: AWS001"
+        >
 
+        <p id="stationError" class="error"></p>
 
-</fieldset>
+        <br>
 
+        <label for="location">
+            Location:
+        </label>
 
+        <br>
 
-<fieldset>
+        <input
+            type="text"
+            id="location"
+            placeholder="Enter location"
+        >
 
-<legend>AWS Station Information</legend>
+        <p id="locationError" class="error"></p>
 
+    </fieldset>
 
-<label for="stationID">
-AWS Station ID:
-</label>
+    <fieldset>
 
-<br>
+        <legend>Weather Observation</legend>
 
-<input
-    type="text"
-    id="stationID"
-    placeholder="Example: AWS001"
->
+        <label for="observationDate">
+            Observation Date:
+        </label>
 
-<p id="stationError" class="error"></p>
+        <br>
 
+        <input
+            type="date"
+            id="observationDate"
+        >
 
-<br>
+        <p id="dateError" class="error"></p>
 
+        <br>
 
-<label for="location">
-Location:
-</label>
+        <label for="temperature">
+            Maximum Temperature (°C):
+        </label>
 
-<br>
+        <br>
 
-<input
-    type="text"
-    id="location"
-    placeholder="Enter location"
->
+        <input
+            type="number"
+            id="temperature"
+            placeholder="Enter temperature"
+        >
 
-<p id="locationError" class="error"></p>
+        <p id="temperatureError" class="error"></p>
 
+        <br>
 
-</fieldset>
+        <label for="humidity">
+            Humidity (%):
+        </label>
 
+        <br>
 
+        <input
+            type="number"
+            id="humidity"
+            placeholder="0 - 100"
+        >
 
-<fieldset>
+        <p id="humidityError" class="error"></p>
 
-<legend>Weather Observation</legend>
+    </fieldset>
 
+    <fieldset>
 
-<label for="observationDate">
-Observation Date:
-</label>
+        <legend>Heatwave Alert Level</legend>
 
-<br>
+        <label for="alertLevel">
+            Select Alert Level:
+        </label>
 
-<input
-    type="date"
-    id="observationDate"
->
+        <br>
 
-<p id="dateError" class="error"></p>
+        <select id="alertLevel">
 
+            <option value="">
+                Select Alert Level
+            </option>
 
-<br>
+            <option value="Normal">
+                Normal
+            </option>
 
+            <option value="Watch">
+                Watch
+            </option>
 
-<label for="temperature">
-Maximum Temperature (°C):
-</label>
+            <option value="Warning">
+                Warning
+            </option>
 
-<br>
+            <option value="Severe">
+                Severe
+            </option>
 
-<input
-    type="number"
-    id="temperature"
-    placeholder="Enter temperature"
->
+        </select>
 
-<p id="temperatureError" class="error"></p>
+        <p id="alertError" class="error"></p>
 
+    </fieldset>
 
-<br>
+    <button type="submit">
+        Submit Observation
+    </button>
 
+    <button type="reset">
+        Clear
+    </button>
 
-<label for="humidity">
-Humidity (%):
-</label>
+    <div id="success" class="success">
 
-<br>
+        Heatwave monitoring data submitted successfully!
 
-<input
-    type="number"
-    id="humidity"
-    placeholder="0 - 100"
->
-
-<p id="humidityError" class="error"></p>
-
-
-</fieldset>
-
-
-
-<fieldset>
-
-<legend>Heatwave Alert Level</legend>
-
-
-<label for="alertLevel">
-Select Alert Level:
-</label>
-
-<br>
-
-<select id="alertLevel">
-
-    <option value="">
-        Select Alert Level
-    </option>
-
-    <option value="Normal">
-        Normal
-    </option>
-
-    <option value="Watch">
-        Watch
-    </option>
-
-    <option value="Warning">
-        Warning
-    </option>
-
-    <option value="Severe">
-        Severe
-    </option>
-
-</select>
-
-<p id="alertError" class="error"></p>
-
-
-</fieldset>
-
-
-
-<button type="submit">
-Submit Observation
-</button>
-
-
-<button type="reset">
-Clear
-</button>
-
-
-<div id="success" class="success">
-
-    Heatwave monitoring data submitted successfully!
-
-</div>
-
+    </div>
 
 </form>
 
 </section>
 
 </main>
-
 
 <footer>
 
@@ -350,15 +310,20 @@ Clear
 
 </footer>
 
-
-
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
 
 <script>
 
 $(document).ready(function()
 {
+
+    // PHONE INPUT: ALLOW ONLY DIGITS, MAXIMUM 12
+
+    $("#mobile").on("input", function()
+    {
+        this.value = this.value.replace(/[^0-9]/g, "").slice(0, 12);
+    });
+
 
     $("#heatwaveForm").submit(function(event)
     {
@@ -377,7 +342,6 @@ $(document).ready(function()
         let name = $("#observerName").val().trim();
 
         let namePattern = /^[A-Za-z ]+$/;
-
 
         if (name === "")
         {
@@ -407,14 +371,12 @@ $(document).ready(function()
         }
 
 
-
         // EMAIL
 
         let email = $("#email").val().trim();
 
         let emailPattern =
         /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-
 
         if (email === "")
         {
@@ -435,18 +397,16 @@ $(document).ready(function()
         }
 
 
-
-        // MOBILE NUMBER
+        // MOBILE NUMBER: EXACTLY 12 DIGITS
 
         let mobile = $("#mobile").val().trim();
 
-        let mobilePattern = /^[6-9][0-9]{9}$/;
-
+        let mobilePattern = /^[0-9]{12}$/;
 
         if (mobile === "")
         {
             $("#mobileError").text(
-                "Mobile number is required."
+                "Phone number is required."
             );
 
             valid = false;
@@ -455,12 +415,11 @@ $(document).ready(function()
         else if (!mobilePattern.test(mobile))
         {
             $("#mobileError").text(
-                "Enter a valid 1-digit Indian mobile number."
+                "Phone number must contain exactly 12 digits."
             );
 
             valid = false;
         }
-
 
 
         // AWS STATION ID
@@ -468,7 +427,6 @@ $(document).ready(function()
         let stationID = $("#stationID").val().trim();
 
         let stationPattern = /^AWS[0-9]{3}$/;
-
 
         if (stationID === "")
         {
@@ -489,11 +447,9 @@ $(document).ready(function()
         }
 
 
-
         // LOCATION
 
         let location = $("#location").val().trim();
-
 
         if (location === "")
         {
@@ -505,12 +461,9 @@ $(document).ready(function()
         }
 
 
-
         // OBSERVATION DATE
 
-        let observationDate =
-            $("#observationDate").val();
-
+        let observationDate = $("#observationDate").val();
 
         if (observationDate === "")
         {
@@ -522,12 +475,9 @@ $(document).ready(function()
         }
 
 
-
         // MAXIMUM TEMPERATURE
 
-        let temperature =
-            $("#temperature").val();
-
+        let temperature = $("#temperature").val();
 
         if (temperature === "")
         {
@@ -548,12 +498,9 @@ $(document).ready(function()
         }
 
 
-
         // HUMIDITY
 
-        let humidity =
-            $("#humidity").val();
-
+        let humidity = $("#humidity").val();
 
         if (humidity === "")
         {
@@ -583,12 +530,9 @@ $(document).ready(function()
         }
 
 
-
         // ALERT LEVEL
 
-        let alertLevel =
-            $("#alertLevel").val();
-
+        let alertLevel = $("#alertLevel").val();
 
         if (alertLevel === "")
         {
@@ -600,7 +544,6 @@ $(document).ready(function()
         }
 
 
-
         // SUCCESS
 
         if (valid)
@@ -609,7 +552,6 @@ $(document).ready(function()
         }
 
     });
-
 
 
     // RESET
@@ -626,7 +568,6 @@ $(document).ready(function()
 });
 
 </script>
-
 
 </body>
 
