@@ -3,13 +3,10 @@
 <html>
 
 <head>
-
     <title>Heatwave Monitoring Form</title>
-
     <link rel="stylesheet" href="style.css">
 
     <style>
-
         nav {
             text-align: center;
         }
@@ -51,524 +48,286 @@
         label {
             font-weight: bold;
         }
-
     </style>
-
 </head>
 
 <body>
 
 <header>
-
     <h1>Heatwave Monitoring Form</h1>
-
-    <p>
-        <b>Heatwave Intelligence System</b>
-    </p>
-
+    <p><b>Heatwave Intelligence System</b></p>
 </header>
 
 <nav>
-
     <a href="index.html">Home</a>
-
     <a href="alert-details.html">Alert Details</a>
-
     <a href="about-system.html">About System</a>
-
     <a href="sources.html">Data Sources</a>
-
     <a href="navigation.html">Navigation</a>
-
     <a href="hotspot-map.html">Hotspot Map</a>
-
     <a href="forecast.html">Forecast</a>
-
     <a href="subscribe.html">Heatwave Monitoring</a>
-
     <a href="media.html">Media</a>
-
 </nav>
 
 <main class="container">
-
 <section class="content">
 
-<h2>Heatwave Monitoring and Early Warning</h2>
-
-<p>
-    Enter the weather observation details below.
-    All fields must be filled correctly before submission.
-</p>
-
-<form id="heatwaveForm" novalidate>
-
-    <fieldset>
-
-        <legend>Observer Information</legend>
-
-        <label for="observerName">
-            Observer Name:
-        </label>
-
-        <br>
-
-        <input
-            type="text"
-            id="observerName"
-            placeholder="Enter observer name"
-        >
-
-        <p id="nameError" class="error"></p>
-
-        <br>
-
-        <label for="email">
-            Email:
-        </label>
-
-        <br>
-
-        <input
-            type="text"
-            id="email"
-            placeholder="Enter email address"
-        >
-
-        <p id="emailError" class="error"></p>
-
-        <br>
-
-        <label for="mobile">
-            Mobile Number:
-        </label>
-
-        <br>
-
-        <input
-            type="text"
-            id="mobile"
-            placeholder="Enter 12-digit phone number"
-            maxlength="12"
-            inputmode="numeric"
-        >
-
-        <p id="mobileError" class="error"></p>
-
-    </fieldset>
-
-    <fieldset>
-
-        <legend>AWS Station Information</legend>
-
-        <label for="stationID">
-            AWS Station ID:
-        </label>
-
-        <br>
-
-        <input
-            type="text"
-            id="stationID"
-            placeholder="Example: AWS001"
-        >
-
-        <p id="stationError" class="error"></p>
-
-        <br>
-
-        <label for="location">
-            Location:
-        </label>
-
-        <br>
-
-        <input
-            type="text"
-            id="location"
-            placeholder="Enter location"
-        >
-
-        <p id="locationError" class="error"></p>
-
-    </fieldset>
-
-    <fieldset>
-
-        <legend>Weather Observation</legend>
-
-        <label for="observationDate">
-            Observation Date:
-        </label>
-
-        <br>
-
-        <input
-            type="date"
-            id="observationDate"
-        >
-
-        <p id="dateError" class="error"></p>
-
-        <br>
-
-        <label for="temperature">
-            Maximum Temperature (°C):
-        </label>
-
-        <br>
-
-        <input
-            type="number"
-            id="temperature"
-            placeholder="Enter temperature"
-        >
-
-        <p id="temperatureError" class="error"></p>
-
-        <br>
-
-        <label for="humidity">
-            Humidity (%):
-        </label>
-
-        <br>
-
-        <input
-            type="number"
-            id="humidity"
-            placeholder="0 - 100"
-        >
-
-        <p id="humidityError" class="error"></p>
-
-    </fieldset>
-
-    <fieldset>
-
-        <legend>Heatwave Alert Level</legend>
-
-        <label for="alertLevel">
-            Select Alert Level:
-        </label>
-
-        <br>
-
-        <select id="alertLevel">
-
-            <option value="">
-                Select Alert Level
-            </option>
-
-            <option value="Normal">
-                Normal
-            </option>
-
-            <option value="Watch">
-                Watch
-            </option>
-
-            <option value="Warning">
-                Warning
-            </option>
-
-            <option value="Severe">
-                Severe
-            </option>
-
-        </select>
-
-        <p id="alertError" class="error"></p>
-
-    </fieldset>
-
-    <button type="submit">
-        Submit Observation
-    </button>
-
-    <button type="reset">
-        Clear
-    </button>
-
-    <div id="success" class="success">
-
-        Heatwave monitoring data submitted successfully!
-
-    </div>
-
-</form>
+    <h2>Heatwave Monitoring and Early Warning</h2>
+
+    <p>
+        Enter the weather observation details below.
+        All fields must be filled correctly before submission.
+    </p>
+
+    <form id="heatwaveForm" novalidate>
+
+        <fieldset>
+            <legend>Observer Information</legend>
+
+            <label for="observerName">Observer Name:</label>
+            <br>
+            <input type="text" id="observerName"
+                   placeholder="Enter observer name">
+            <p id="nameError" class="error"></p>
+
+            <br>
+
+            <label for="email">Email:</label>
+            <br>
+            <input type="text" id="email"
+                   placeholder="Enter email address">
+            <p id="emailError" class="error"></p>
+
+            <br>
+
+            <label for="mobile">Mobile Number:</label>
+            <br>
+            <input type="text" id="mobile"
+                   placeholder="Enter 12-digit phone number"
+                   maxlength="12"
+                   inputmode="numeric">
+            <p id="mobileError" class="error"></p>
+        </fieldset>
+
+        <fieldset>
+            <legend>AWS Station Information</legend>
+
+            <label for="stationID">AWS Station ID:</label>
+            <br>
+            <input type="text" id="stationID"
+                   placeholder="Example: AWS001">
+            <p id="stationError" class="error"></p>
+
+            <br>
+
+            <label for="location">Location:</label>
+            <br>
+            <input type="text" id="location"
+                   placeholder="Enter location">
+            <p id="locationError" class="error"></p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Weather Observation</legend>
+
+            <label for="observationDate">Observation Date:</label>
+            <br>
+            <input type="date" id="observationDate">
+            <p id="dateError" class="error"></p>
+
+            <br>
+
+            <label for="temperature">Maximum Temperature (°C):</label>
+            <br>
+            <input type="number" id="temperature"
+                   placeholder="Enter temperature">
+            <p id="temperatureError" class="error"></p>
+
+            <br>
+
+            <label for="humidity">Humidity (%):</label>
+            <br>
+            <input type="number" id="humidity"
+                   placeholder="0 - 100">
+            <p id="humidityError" class="error"></p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Heatwave Alert Level</legend>
+
+            <label for="alertLevel">Select Alert Level:</label>
+            <br>
+
+            <select id="alertLevel">
+                <option value="">Select Alert Level</option>
+                <option value="Normal">Normal</option>
+                <option value="Watch">Watch</option>
+                <option value="Warning">Warning</option>
+                <option value="Severe">Severe</option>
+            </select>
+
+            <p id="alertError" class="error"></p>
+        </fieldset>
+
+        <button type="submit">Submit Observation</button>
+        <button type="reset">Clear</button>
+
+        <div id="success" class="success">
+            Heatwave monitoring data submitted successfully!
+        </div>
+
+    </form>
 
 </section>
-
 </main>
 
 <footer>
-
-    <p>
-        © 2026 Heatwave Intelligence System
-    </p>
-
+    <p>© 2026 Heatwave Intelligence System</p>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <script>
+$(document).ready(function() {
 
-$(document).ready(function()
-{
-
-    // PHONE INPUT: ALLOW ONLY DIGITS, MAXIMUM 12
-
-    $("#mobile").on("input", function()
-    {
+    // Allow digits only and limit phone number to 12 digits
+    $("#mobile").on("input", function() {
         this.value = this.value.replace(/[^0-9]/g, "").slice(0, 12);
     });
 
-
-    $("#heatwaveForm").submit(function(event)
-    {
+    $("#heatwaveForm").on("submit", function(event) {
 
         event.preventDefault();
 
         $(".error").text("");
-
         $("#success").hide();
 
         let valid = true;
 
-
         // OBSERVER NAME
-
         let name = $("#observerName").val().trim();
-
         let namePattern = /^[A-Za-z ]+$/;
 
-        if (name === "")
-        {
-            $("#nameError").text(
-                "Observer name is required."
-            );
-
+        if (name === "") {
+            $("#nameError").text("Observer name is required.");
+            valid = false;
+        } else if (name.length < 3) {
+            $("#nameError").text("Name must contain at least 3 characters.");
+            valid = false;
+        } else if (!namePattern.test(name)) {
+            $("#nameError").text("Name should contain alphabets and spaces only.");
             valid = false;
         }
-
-        else if (name.length < 3)
-        {
-            $("#nameError").text(
-                "Name must contain at least 3 characters."
-            );
-
-            valid = false;
-        }
-
-        else if (!namePattern.test(name))
-        {
-            $("#nameError").text(
-                "Name should contain alphabets and spaces only."
-            );
-
-            valid = false;
-        }
-
 
         // EMAIL
-
         let email = $("#email").val().trim();
+        let emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
-        let emailPattern =
-        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-
-        if (email === "")
-        {
-            $("#emailError").text(
-                "Email is required."
-            );
-
+        if (email === "") {
+            $("#emailError").text("Email is required.");
+            valid = false;
+        } else if (!emailPattern.test(email)) {
+            $("#emailError").text("Enter a valid email address.");
             valid = false;
         }
 
-        else if (!emailPattern.test(email))
-        {
-            $("#emailError").text(
-                "Enter a valid email address."
-            );
-
-            valid = false;
-        }
-
-
-        // MOBILE NUMBER: EXACTLY 12 DIGITS
-
+        // PHONE NUMBER: EXACTLY 12 DIGITS
         let mobile = $("#mobile").val().trim();
-
         let mobilePattern = /^[0-9]{12}$/;
 
-        if (mobile === "")
-        {
-            $("#mobileError").text(
-                "Phone number is required."
-            );
-
+        if (mobile === "") {
+            $("#mobileError").text("Phone number is required.");
             valid = false;
-        }
-
-        else if (!mobilePattern.test(mobile))
-        {
+        } else if (!mobilePattern.test(mobile)) {
             $("#mobileError").text(
                 "Phone number must contain exactly 12 digits."
             );
-
             valid = false;
         }
-
 
         // AWS STATION ID
-
         let stationID = $("#stationID").val().trim();
-
         let stationPattern = /^AWS[0-9]{3}$/;
 
-        if (stationID === "")
-        {
-            $("#stationError").text(
-                "AWS Station ID is required."
-            );
-
+        if (stationID === "") {
+            $("#stationError").text("AWS Station ID is required.");
             valid = false;
-        }
-
-        else if (!stationPattern.test(stationID))
-        {
+        } else if (!stationPattern.test(stationID)) {
             $("#stationError").text(
                 "AWS Station ID must be in format AWS001."
             );
-
             valid = false;
         }
-
 
         // LOCATION
-
         let location = $("#location").val().trim();
 
-        if (location === "")
-        {
-            $("#locationError").text(
-                "Location is required."
-            );
-
+        if (location === "") {
+            $("#locationError").text("Location is required.");
             valid = false;
         }
-
 
         // OBSERVATION DATE
-
         let observationDate = $("#observationDate").val();
 
-        if (observationDate === "")
-        {
-            $("#dateError").text(
-                "Observation date is required."
-            );
-
+        if (observationDate === "") {
+            $("#dateError").text("Observation date is required.");
             valid = false;
         }
 
-
         // MAXIMUM TEMPERATURE
-
         let temperature = $("#temperature").val();
 
-        if (temperature === "")
-        {
+        if (temperature === "") {
             $("#temperatureError").text(
                 "Maximum temperature is required."
             );
-
+            valid = false;
+        } else if (!Number.isFinite(Number(temperature))) {
+            $("#temperatureError").text("Temperature must be a number.");
             valid = false;
         }
-
-        else if (isNaN(temperature))
-        {
-            $("#temperatureError").text(
-                "Temperature must be a number."
-            );
-
-            valid = false;
-        }
-
 
         // HUMIDITY
-
         let humidity = $("#humidity").val();
 
-        if (humidity === "")
-        {
-            $("#humidityError").text(
-                "Humidity is required."
-            );
-
+        if (humidity === "") {
+            $("#humidityError").text("Humidity is required.");
             valid = false;
-        }
-
-        else if (isNaN(humidity))
-        {
-            $("#humidityError").text(
-                "Humidity must be a number."
-            );
-
+        } else if (!Number.isFinite(Number(humidity))) {
+            $("#humidityError").text("Humidity must be a number.");
             valid = false;
-        }
-
-        else if (humidity < 0 || humidity > 100)
-        {
+        } else if (Number(humidity) < 0 || Number(humidity) > 100) {
             $("#humidityError").text(
                 "Humidity must be between 0% and 100%."
             );
-
             valid = false;
         }
-
 
         // ALERT LEVEL
-
         let alertLevel = $("#alertLevel").val();
 
-        if (alertLevel === "")
-        {
-            $("#alertError").text(
-                "Please select an alert level."
-            );
-
+        if (alertLevel === "") {
+            $("#alertError").text("Please select an alert level.");
             valid = false;
         }
 
-
         // SUCCESS
-
-        if (valid)
-        {
+        if (valid) {
             $("#success").show();
         }
 
     });
 
-
     // RESET
-
-    $("#heatwaveForm").on("reset", function()
-    {
-
+    $("#heatwaveForm").on("reset", function() {
         $(".error").text("");
-
         $("#success").hide();
-
     });
 
 });
-
 </script>
 
 </body>
-
 </html>
